@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class findAllLonelyNumbers_Q2150 {
   public List<Integer> findLonely(int[] nums) {
