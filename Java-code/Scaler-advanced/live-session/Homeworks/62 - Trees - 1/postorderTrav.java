@@ -15,9 +15,9 @@ class TreeNode {
     }
 }
 
-// Data Right Left == Left Right Data
 public class postorderTrav {
-    public ArrayList<Integer> postorderTraversal(TreeNode A) {
+    // Data Right Left == Left Right Data
+    public ArrayList<Integer> postorderTraversalDRL(TreeNode A) {
         TreeNode tempA = A;
         Deque<TreeNode> deq = new LinkedList<>();
         ArrayList<Integer> arr = new ArrayList<>();
@@ -32,6 +32,14 @@ public class postorderTrav {
             tempA = tempA.left;
         }
         Collections.reverse(arr);
+        return arr;
+    }
+
+    public ArrayList<Integer> postorderTraversal(TreeNode A) {
+        // TreeNode tempA = A;
+        // Deque<TreeNode> deq = new LinkedList<>();
+        ArrayList<Integer> arr = new ArrayList<>();
+        
         return arr;
     }
 }
