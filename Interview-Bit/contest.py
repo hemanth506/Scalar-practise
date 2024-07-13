@@ -2,7 +2,7 @@ def main():
     N,M,Q = list(map(int, input().split()))
     
     matrix = [[0 for i in range(M)] for i in range (N)]
-    print(matrix)
+    # print(matrix)
     integer = 1
     for i in range(N):
         for j in range(M):
