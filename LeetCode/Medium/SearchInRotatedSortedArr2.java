@@ -1,5 +1,3 @@
-// getting TLE
-
 public class SearchInRotatedSortedArr2 {
   public boolean search(int[] nums, int target) {
     int N = nums.length;
