@@ -4,6 +4,7 @@ def alternatingCharacters(s):
     j = 0
     appendList = []
     for i in range(len(s)):
+        
         print(i, j, s[i], checkChar[j])
         if s[i] != checkChar[j]:
             appendList.append(i)
