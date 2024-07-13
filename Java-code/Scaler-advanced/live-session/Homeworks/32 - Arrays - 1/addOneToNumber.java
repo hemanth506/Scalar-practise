@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class addOneToNumber {
-    public ArrayList<Integer> plusOneOld(ArrayList<Integer> A) {
+    public ArrayList<Integer> plusOne(ArrayList<Integer> A) {
         int N = A.size();
         System.out.println(A);
 
@@ -54,62 +53,9 @@ public class addOneToNumber {
         return B;
     }
 
-    // for small values
-    public ArrayList<Integer> plusOneSmall(ArrayList<Integer> A) {
-        int N = A.size();
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < N; i++) {
-            sb.append(A.get(i));
-        }
-
-        String str = sb.toString();
-        long val = Long.parseLong(str);
-        val += 1;
-        System.out.println(val);
-        ArrayList<Integer> arr = new ArrayList<>();
-        while (val > 0) {
-            long ct = val % 10;
-            arr.add((int)ct);
-            val = val / 10;
-            System.out.println(val);
-        }
-        System.out.println(arr);
-        Collections.reverse(arr);
-        System.out.println(arr);
-
-        return arr;
-    }
-
-    // Correct and easy approach
-    public ArrayList<Integer> plusOne(ArrayList<Integer> A) {
-        int N = A.size();
-        int carry = 1;
-
-        for(int i = N-1; i >= 0; i--) {
-            int val = A.get(i) + carry;
-            carry = 0;
-            if(val == 10) {
-                val = 0;
-                carry = 1;
-            }
-            A.set(i, val);
-        }
-        ArrayList<Integer> res = new ArrayList<>();
-        if(carry == 1) {
-            res.add(1);
-        }
-        for(int x: A) {
-            if(x == 0 && res.isEmpty()) {
-                continue;
-            }
-            res.add(x);
-        }
-	    return res;
-	}
-    
     public static void main(String[] args) {
         addOneToNumber andOne = new addOneToNumber();
-        // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+        ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(0, 0, 9, 9, 9));
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(9, 9, 9));
 
@@ -118,9 +64,6 @@ public class addOneToNumber {
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(0, 0, 4, 4, 6, 0, 9, 6, 5, 1));
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(0,0));
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(9));
-        ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1,1,1,3,2,1,1,2,5,9,6,5));
-
-        // 111321125965
 
         andOne.plusOne(A);
 
