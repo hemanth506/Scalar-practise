@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class maxNonNegativeSubArray {
     // Using Split and iterate tech - TC = O(N) SC = O(Range)
-    public ArrayList<Integer> maxsetOLD(ArrayList<Integer> A) {
+    public ArrayList<Integer> maxsetOLD2(ArrayList<Integer> A) {
         int N = A.size();
         System.out.println(A);
         System.out.println("===================================");
@@ -85,7 +85,7 @@ public class maxNonNegativeSubArray {
     }
 
     // Using prefixSum - TC = O(N) SC = O(N + Range)
-    public ArrayList<Integer> maxset(ArrayList<Integer> A) {
+    public ArrayList<Integer> maxsetOLD1(ArrayList<Integer> A) {
         int N = A.size();
         ArrayList<Long> B = new ArrayList<Long>();
         int ctNeg = 0;
@@ -141,16 +141,43 @@ public class maxNonNegativeSubArray {
         return C;
     }
 
+    // TC = O(N) SC = O(N)
+    public ArrayList<Integer> maxset(ArrayList<Integer> A) {
+        int N = A.size();
+
+        ArrayList<Integer> newArr = new ArrayList<>();
+        ArrayList<Integer> maxArr = new ArrayList<>();
+        long maxSum = 0;
+        long newSum = 0;
+        for(int i = 0; i < N; i++) {
+            if(A.get(i) >= 0) {
+                newSum += A.get(i);
+                newArr.add(A.get(i));
+            } else {
+                newArr = new ArrayList<>();
+                newSum = 0;
+            }
+
+            if(maxSum < newSum || ((maxSum == newSum) && (newArr.size() > maxArr.size()))) {
+                maxArr = newArr;
+                maxSum = newSum;
+            }
+
+        }
+        System.out.println(maxArr);
+        return maxArr;
+    }
+    
     public static void main(String[] args) {
         maxNonNegativeSubArray mn = new maxNonNegativeSubArray();
 
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1, 2, 5, -7, 2, 3, -1, 1, -3, -2, 1, 4, 1, 1, 1, -5, 1, 1, 4, 1, 1));
 
-        // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1, 2, 5, -7, 2,3));
+        ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1, 2, 5, -7, 2,3));
 
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(10, -1, 2, 3, -4, 100));
 
-        ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1967513926,1540383426, -1303455736, -521595368));
+        // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1967513926,1540383426, -1303455736, -521595368));
 
         // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(-1, -1, -1, -1, -1));
 
