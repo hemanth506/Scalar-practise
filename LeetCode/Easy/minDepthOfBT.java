@@ -1,4 +1,4 @@
-import Medium.TreeNode;
+import Easy.TreeNode;
 
 public class minDepthOfBT {
   int minDepthVal = Integer.MAX_VALUE;

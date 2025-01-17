@@ -1,4 +1,4 @@
-import Medium.TreeNode;
+import Easy.TreeNode;
 
 public class balancedBST {
   boolean isBalanced = true;

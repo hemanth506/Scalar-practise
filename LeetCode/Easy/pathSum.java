@@ -1,4 +1,4 @@
-import Medium.TreeNode;
+import Easy.TreeNode;
 
 public class pathSum {
   public boolean hasPathSum(TreeNode root, int targetSum) {
